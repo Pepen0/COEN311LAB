@@ -1,0 +1,38 @@
+ARM GAS  add_from_mem.s 			page 1
+
+
+   1              	@ Ted Obuchowicz
+   2              	@ Oct. 12, 2022
+   3              	@ add_from_mem.s
+   4              	
+   5              	.syntax unified
+   6              	.cpu cortex-m4
+   7              	.thumb
+   8              	
+   9 0000 00040020 	.word 0x20000400
+  10 0004 ED000080 	.word 0x800000ed
+  11 0008 00000000 	.space 0xe4
+  11      00000000 
+  11      00000000 
+  11      00000000 
+  11      00000000 
+  12              	
+  13              	.data
+  14 0000 01       	mick: .byte 0x01 @ reserve 1 byte of RAM and initialize it to 01
+  15 0001 02       	keith: .byte 0x02 @ reserve 1 byte of RAM and initialize it to 02
+  16 0002 00       	result: .space 0x01 @ reserve 1 byte of RAM without any
+  17              		@initialization
+  18              	
+  19              	.text
+  20              	start:
+  21 00ec 0448     		ldr r0, =mick @ load address of mick into r0
+  22 00ee 0178     		ldrb r1, [r0] @ load r1 with memory byte contents of mick
+  23 00f0 0448     		ldr r0, =keith @ load address of keith into r0
+  24 00f2 0278     		ldrb r2, [r0] @ load r2 with memory byte contents of keith
+  25 00f4 02EB0103 		add r3, r2, r1 @ r3 = r2 + r1
+  26 00f8 0348     		ldr r0, =result @ load address of result into r0
+  27 00fa 0370     		strb r3, [r0] @ store sum into memory at location result
+  28 00fc FEE70000 	stop: b stop
+  28      00000000 
+  28      01000000 
+  28      02000000 

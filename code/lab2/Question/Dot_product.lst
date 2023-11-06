@@ -1,0 +1,43 @@
+ARM GAS  Dot_product.s 			page 1
+
+
+   1              	.syntax unified 
+   2              	.cpu cortex-m4 
+   3              	.thumb 
+   4 0000 00040020 	.word 0x20000400 
+   5 0004 ED000080 	.word 0x800000ed 
+   6 0008 00000000 	.space 0xe4 
+   6      00000000 
+   6      00000000 
+   6      00000000 
+   6      00000000 
+   7              	
+   8              	.data 
+   9 0000 020304   	mick: .byte 2,3,4 
+  10 0003 050607   	keith: .byte 5,6,7 
+  11 0006 00       	dot: .space 0x01 
+  12              	
+  13              	.text 
+  14              	start: 
+  15 00ec 4FF00004 		mov r4, #0 
+  16 00f0 4FF00005 		mov r5, #0 
+  17              	
+  18              	loop: 
+  19 00f4 0648     		ldr r0, =mick 
+  20 00f6 415D     		ldrb r1, [r0, r5] 
+  21 00f8 0648     		ldr r0, =keith 
+  22 00fa 425D     		ldrb r2, [r0, r5] 
+  23 00fc 01FB02F3 		mul r3, r1, r2 
+  24 0100 1C44     		add r4, r4, r3 
+  25 0102 05F10105 		add r5, r5, #1 
+  26 0106 032D     		cmp r5, #3 
+  27 0108 F4DB     		blt loop 
+  28              	
+  29 010a 0348     		ldr r0, =dot 
+  30 010c 0470     		strb r4, [r0] 
+  31              	
+  32              	stop: 
+  33 010e FEE70000 		b stop
+  33      00000300 
+  33      00000600 
+  33      0000

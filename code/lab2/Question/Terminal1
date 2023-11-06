@@ -1,0 +1,93 @@
+[bellow] [/home/p/p_thibe] > ls
+COEN311  Desktop  Documents  Downloads	Modelsim  Music  Pictures  Public  Templates  Videos
+[bellow] [/home/p/p_thibe] > cd COEN311
+[bellow] [/home/p/p_thibe/COEN311] > LS
+LS: Command not found.
+[bellow] [/home/p/p_thibe/COEN311] > ls
+code
+[bellow] [/home/p/p_thibe/COEN311] > cd code
+[bellow] [/home/p/p_thibe/COEN311/code] > ls
+lab1  lab2
+[bellow] [/home/p/p_thibe/COEN311/code] > cd lab2
+[bellow] [/home/p/p_thibe/COEN311/code/lab2] > ls
+[bellow] [/home/p/p_thibe/COEN311/code/lab2] > openocd -fboard/st_nucleo_f3.cfg
+openocd: Command not found.
+[bellow] [/home/p/p_thibe/COEN311/code/lab2] > openocd -f board/st_nucleo_f3.cfg
+openocd: Command not found.
+[bellow] [/home/p/p_thibe/COEN311/code/lab2] > module load COEN311
+[bellow] [/home/p/p_thibe/COEN311/code/lab2] > openocd -f board/st_nucleo_f3.cfg
+Open On-Chip Debugger 0.11.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+srst_only separate srst_nogate srst_open_drain connect_deassert_srst
+
+Info : Listening on port 6666 for tcl connections
+Info : Listening on port 4444 for telnet connections
+Info : clock speed 1000 kHz
+Info : STLINK V2J33M25 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.250952
+Info : stm32f3x.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f3x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+^[[AInfo : accepting 'gdb' connection on tcp/3333
+target halted due to debug-request, current mode: Handler HardFault
+xPSR: 0x00000003 pc: 00000000 msp: 0x200003e0
+Info : device id = 0x10016438
+Info : flash size = 64kbytes
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x800000ec msp: 0x20000400
+Info : halted: PC: 0x200000ee
+Info : halted: PC: 0x200000f0
+Info : halted: PC: 0x200000f2
+Info : halted: PC: 0x200000f4
+Info : halted: PC: 0x200000f8
+Info : halted: PC: 0x200000fa
+Info : halted: PC: 0x200000fc
+Info : dropped 'gdb' connection
+Info : accepting 'gdb' connection on tcp/3333
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x800000ec msp: 0x20000400
+Info : halted: PC: 0x200000f0
+Info : halted: PC: 0x200000f4
+Info : halted: PC: 0x200000f6
+Info : halted: PC: 0x200000f8
+Info : halted: PC: 0x200000fa
+Info : halted: PC: 0x200000fc
+Info : halted: PC: 0x20000100
+Info : halted: PC: 0x20000102
+Info : halted: PC: 0x20000106
+Info : halted: PC: 0x20000108
+Info : halted: PC: 0x200000f4
+Info : halted: PC: 0x200000f6
+Info : halted: PC: 0x200000f8
+Info : halted: PC: 0x200000fa
+Info : halted: PC: 0x200000fc
+Info : halted: PC: 0x20000100
+Info : halted: PC: 0x20000102
+Info : halted: PC: 0x20000106
+Info : halted: PC: 0x20000108
+Info : halted: PC: 0x200000f4
+Info : halted: PC: 0x200000f6
+Info : halted: PC: 0x200000f8
+Info : halted: PC: 0x200000fa
+Info : halted: PC: 0x200000fc
+Info : halted: PC: 0x20000100
+Info : halted: PC: 0x20000102
+Info : halted: PC: 0x20000106
+Info : halted: PC: 0x20000108
+Info : halted: PC: 0x2000010a
+Info : halted: PC: 0x2000010c
+Info : halted: PC: 0x2000010e
+Info : halted: PC: 0x2000010e
+Info : halted: PC: 0x2000010e
+Info : halted: PC: 0x2000010e
+Info : dropped 'gdb' connection
+^Cshutdown command invoked
+
+[bellow] [/home/p/p_thibe/COEN311/code/lab2] > 
