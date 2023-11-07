@@ -1,0 +1,47 @@
+ARM GAS  2dArray.s 			page 1
+
+
+   1              	.syntax unified
+   2              	.cpu cortex-m4
+   3              	.thumb
+   4              	
+   5              	.global start
+   6              	.data
+   7 0000 00040020 	.word 0x20000400  
+   8 0004 ED000080 	.word 0x800000ed  
+   9 0008 00000000 	.space 0xe4       
+   9      00000000 
+   9      00000000 
+   9      00000000 
+   9      00000000 
+  10              	
+  11 00ec 03020401 	array: .byte 3,2,4,1,5,6  @ 2D array with 3 rows and 2 columns.
+  11      0506
+  12              	
+  13              	.text
+  14              	start:
+  15 0000 0848     	    ldr r0, =array          @ initialise array.
+  16 0002 4FF00005 	    mov r5, #0              @ loop counter = 0.
+  17              	
+  18              	loop:
+  19              	   
+  20 0006 05F10001 	    add r1, r5, #0          @ Row index
+  21 000a 4FF00002 	    mov r2, #0              @ Column index
+  22 000e 4FF00206 	    mov r6, #2              @ Move the multiplier into a register
+  23              	
+  24              	    @ Calculate ((row_index * number_of_columns) + column_index)
+  25 0012 01FB06F3 	    mul r3, r1, r6          @ r3 = row_index * 2 (since we have 2 columns per row).
+  26 0016 1344     	    add r3, r3, r2          @ r3 = offset from the start of the array 
+  27              	
+  28              	    @ Access the element using register indirect with offset addressing mode.
+  29              	
+  30 0018 C45C     	    ldrb r4, [r0, r3]       @ r4= array[r1][r2] - looks for the byte at the offset
+  31              	    
+  32              	    
+  33              	    @ Increment the loop counter and check if we've done 3 iterations.
+  34 001a 05F10105 	    add r5, r5, #1
+  35 001e 032D     	    cmp r5, #3
+  36 0020 F1DB     	    blt loop                @ loop if r5 is lower than 3
+  37              	
+  38 0022 FEE7EC00 	    b .                     @ infinite loop
+  38      0000
