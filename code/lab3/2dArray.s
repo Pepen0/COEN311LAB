@@ -19,19 +19,20 @@ loop:
    
     add r1, r5, #0          @ Row index
     mov r2, #0              @ Column index
+    mov r6, #2              @ Move the multiplier into a register
 
     @ Calculate ((row_index * number_of_columns) + column_index)
-    mul r3, r1, #2          @ r3 = row_index * 2 (since we have 2 columns per row).
+    mul r3, r1, r6          @ r3 = row_index * 2 (since we have 2 columns per row).
     add r3, r3, r2          @ r3 = offset from the start of the array 
 
     @ Access the element using register indirect with offset addressing mode.
 
-    ldrb r4, [r0, r3]       @ r4= array[r1][r2] - looks for the byte at the ofset
+    ldrb r4, [r0, r3]       @ r4= array[r1][r2] - looks for the byte at the offset
     
     
     @ Increment the loop counter and check if we've done 3 iterations.
     add r5, r5, #1
     cmp r5, #3
-    blt loop                @ loop if r5 is lower then 3
+    blt loop                @ loop if r5 is lower than 3
 
-    b . @ unlimited loop 
+    b .                     @ infinite loop
