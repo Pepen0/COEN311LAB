@@ -1,0 +1,42 @@
+ARM GAS  Converter.s 			page 1
+
+
+   1              	.syntax unified
+   2              	.cpu cortex-m4
+   3              	.thumb
+   4              	
+   5              	.data
+   6 0000 6A754D70 	message: .ascii "juMping JAck flaSh #1"
+   6      696E6720 
+   6      4A41636B 
+   6      20666C61 
+   6      53682023 
+   7 0015 00       	lastchar: .byte 0  @ NULL since last char would be a byte full of 0
+   8              	
+   9              	.text
+  10              	.global start
+  11              	start:
+  12 0000 0748     	    ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=messa
+  13              	
+  14              	convert_loop:
+  15 0002 0178     	    ldrb r1, [r0]         @ x=array[i]
+  16 0004 0029     	    cmp r1, #0            @ if(x==0)
+  17 0006 09D0     	    beq end_conversion    @     goto end_conversion -> end loop
+  18              	
+  19 0008 6129     	    cmp r1, #'a'          @ if(x<'a')
+  20 000a 04DB     	    blt next_char         @ goto next_char ->skip itteration
+  21 000c 7A29     	    cmp r1, #'z'          @ if (x>'z')
+  22 000e 02DC     	    bgt next_char         @ goto next_char ->skip itteration
+  23              	
+  24 0010 A1F12001 	    sub r1, r1, #32       @ x=x-32
+  25 0014 0170     	    strb r1, [r0]         @ array[i]=x
+  26              	
+  27              	next_char:
+  28 0016 00F10100 	    add r0, r0, #1        @ i++
+  29 001a F2E7     	    b convert_loop        @ repeat loop
+  30              	
+  31              	end_conversion:
+  32 001c FEE7     	    b end_conversion      @ End of the program, enter an infinite loop
+  33              	
+  34 001e 00000000 	.end
+  34      0000
