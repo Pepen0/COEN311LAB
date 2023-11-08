@@ -1,0 +1,51 @@
+ARM GAS  Code1.s 			page 1
+
+
+   1              	@ Ted Obuchowicz 
+   2              	@ May 29, 2023 
+   3              	@ simple_loop.s 
+   4              	@ adds a list of 5 numbers stored in memory
+   5              	
+   6              	.syntax unified 
+   7              	.cpu cortex-m4 
+   8              	.thumb
+   9              	
+  10 0000 00040020 	.word 0x20000400 
+  11 0004 ED000080 	.word 0x800000ed 
+  12 0008 00000000 	.space 0xe4
+  12      00000000 
+  12      00000000 
+  12      00000000 
+  12      00000000 
+  13              	
+  14              	.data 
+  15              	@ declare your data here 
+  16 0000 01020304 	num:   .byte  1,2,3,4,5 @ declare 5 bytes of data starting                         
+  16      05
+  17              	                        @ at address  num 
+  18 0005 00       	sum:   .space 0x01      @ reserve 1 byte of RAM  without                         
+  19              	                        @any initialization 
+  20              	
+  21              	.text 
+  22              	start: 
+  23 00ec 4FF00000 	mov r0, #0   @ r0 used to hold running sum, clear it to zero 
+  24 00f0 0649     	ldr r1, =num @ load starting address of num into r1 
+  25 00f2 4FF00502 	mov r2, #5   @ r2 used as a counter to keep track of how              
+  26              	             @ many numbers from the list have been added up
+  27              	
+  28              	@ we make use of register indirect addressing and conditional jumps 
+  29              	@ to setup a loop to add up the 5 numbers
+  30              	
+  31 00f6 0B78     	top:    ldrb r3, [r1]   @ get number from memory, store in r3      
+  32 00f8 1844     	        add r0, r0, r3  @ sum = sum + number from list
+  33 00fa 01F10101 	        add r1, r1, #1  @ make r1 point to the next number in the list
+  34 00fe A2F10102 	        sub r2, r2, #1  @ decrement the loop counter      
+  35 0102 002A     	        cmp r2, #0      @ check to if end of list
+  36 0104 F7D1     	        bne top         @ branch to top of loop if not at end of list
+  37 0106 0249     	        ldr r1, =sum    @ load r1 with address of sum and store                      
+  38              	                        @ the sum into memory      
+  39 0108 0870     	        strb r0, [r1]
+  40              	
+  41 010a FEE7     	stop:   b stop 
+  42 010c 00000000 	.end
+  42      05000000 
