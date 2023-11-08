@@ -2,34 +2,33 @@
 .cpu cortex-m4
 .thumb
 
-.word 0x20000400 
-.word 0x800000ed 
-.space 0xe4
-
 .data
-array: .byte 'j','A','c','K' ,' ', 'f', 'L', 'a', 'S', 'h','#', '1', 0
+message: .ascii "juMping JAck flaSh #1"
+lastchar: .byte 0  ; This represents the NULL character to indicate the end of the string
 
 .text
+.global start
 start:
-    ldr r0, =array  @ Load array into r0
+    ldr r0, =message  ; Load the address of the message into r0
 
-    ldrb r2, [r0]       @ Load the current byte
-    cmp r2, #0          @if (arrray[i]=="\0")
-    beq the_end         @       goto the_end;
+convert_loop:
+    ldrb r1, [r0]         ; Load the current byte
+    cmp r1, #0            ; Compare the current byte to NULL
+    beq end_conversion    ; If byte is NULL, we've reached the end
 
-    cmp r2, #'a'        @ if(array[i]<'a')
-    blt next_char       @       goto next_char;
-    cmp r2, #'z'        @ if(array[i]>'z')
-    bgt next_char       @       goto next_char;
+    cmp r1, #'a'          ; Compare with 'a' to find the lower bound
+    blt next_char         ; If less, it is not a lowercase letter
+    cmp r1, #'z'          ; Compare with 'z' to check the upper bound
+    bgt next_char         ; If greater, it is not a lowercase letter
 
-    sub r2, r2, #32     @ array[i]= array[i]-32;
-
-    strb r2, [r0]   @ Save the new value at r0
+    sub r1, r1, #32       ; Convert to uppercase by subtracting 32
+    strb r1, [r0]         ; Store back the converted character
 
 next_char:
-    add r0, r0, #1      @ i++;
-    b start             @ goto start
+    add r0, r0, #1        ; Increment the pointer to the next character
+    b convert_loop        ; Continue the loop
 
-the_end: b the_end             @ Infinite loop to stop execution
+end_conversion:
+    b end_conversion      ; End of the program, enter an infinite loop
 
 .end
