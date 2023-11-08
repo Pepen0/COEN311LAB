@@ -4,31 +4,31 @@
 
 .data
 message: .ascii "juMping JAck flaSh #1"
-lastchar: .byte 0  ; This represents the NULL character to indicate the end of the string
+lastchar: .byte 0  @ NULL since last char would be a byte full of 0
 
 .text
 .global start
 start:
-    ldr r0, =message  ; Load the address of the message into r0
+    ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=message[i]
 
 convert_loop:
-    ldrb r1, [r0]         ; Load the current byte
-    cmp r1, #0            ; Compare the current byte to NULL
-    beq end_conversion    ; If byte is NULL, we've reached the end
+    ldrb r1, [r0]         @ x=array[i]
+    cmp r1, #0            @ if(x==0)
+    beq end_conversion    @     goto end_conversion -> end loop
 
-    cmp r1, #'a'          ; Compare with 'a' to find the lower bound
-    blt next_char         ; If less, it is not a lowercase letter
-    cmp r1, #'z'          ; Compare with 'z' to check the upper bound
-    bgt next_char         ; If greater, it is not a lowercase letter
+    cmp r1, #'a'          @ if(x<'a')
+    blt next_char         @ goto next_char ->skip itteration
+    cmp r1, #'z'          @ if (x>'z')
+    bgt next_char         @ goto next_char ->skip itteration
 
-    sub r1, r1, #32       ; Convert to uppercase by subtracting 32
-    strb r1, [r0]         ; Store back the converted character
+    sub r1, r1, #32       @ x=x-32
+    strb r1, [r0]         @ array[i]=x
 
 next_char:
-    add r0, r0, #1        ; Increment the pointer to the next character
-    b convert_loop        ; Continue the loop
+    add r0, r0, #1        @ i++
+    b convert_loop        @ repeat loop
 
 end_conversion:
-    b end_conversion      ; End of the program, enter an infinite loop
+    b end_conversion      @ End of the program, enter an infinite loop
 
 .end
