@@ -1,0 +1,11 @@
+• module load COEN311
+• which openocd 
+• which arm-none-eabi-as 
+• which  arm-none-eabi-ld 
+• which arm-none-eabi-gdb 
+• man which 
+• lsusb
+• openocd -f board/st_nucleo_f3.cfg
+• arm-none-eabi-gdb 2dArray.elf
+• target extended-remote localhost:3333
+•  Load, break, start, continue, stepi, info register, quit

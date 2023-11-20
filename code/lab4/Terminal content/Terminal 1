@@ -1,0 +1,1169 @@
+[becker] [/home/p/p_thibe] > cd COEN311
+[becker] [/home/p/p_thibe/COEN311] > cd code/lab4
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > ls -l
+total 128
+-rw-rw---- 1 p_thibe p_thibe   162 Nov  7 22:31 ~$212017_Lab_report_4.docx
+-rw-rw---- 1 p_thibe p_thibe 20915 Nov  7 22:31 40212017_Lab_report_4.docx
+-rwxrwx--- 1 p_thibe p_thibe 66852 Nov  8 17:09 Converter.elf
+-rw-rw---- 1 p_thibe p_thibe  1679 Nov  8 17:09 Converter.lst
+-rw-rw---- 1 p_thibe p_thibe  1652 Nov  8 17:09 Converter.o
+-rw-rw---- 1 p_thibe p_thibe   894 Nov  7 22:31 Converter.s
+-rw-rw---- 1 p_thibe p_thibe 60092 Nov  7 22:31 lab4.pdf
+drwxrwx--- 2 p_thibe p_thibe  4096 Nov  7 22:47 Question_1
+-rw-rw---- 1 p_thibe p_thibe   170 Oct  4 15:49 stm32f334r8_ALL_IN_RAM.ld
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > arm-none-eabi-as -g Converter.s -o Converter.o -al=Converter.lst
+arm-none-eabi-as: Command not found.
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > module load COEN311
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > arm-none-eabi-as -g Converter.s -o Converter.o -al=Converter.lst
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > arm-none-eabi-ld Converter.o -o Converter.elf -T stm32f334r8_ALL_IN_RAM.ld
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > openocd -f board/st_nucleo_f3.cfg
+Open On-Chip Debugger 0.11.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+srst_only separate srst_nogate srst_open_drain connect_deassert_srst
+
+Info : Listening on port 6666 for tcl connections
+Info : Listening on port 4444 for telnet connections
+Info : clock speed 1000 kHz
+Info : STLINK V2J33M25 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.247613
+Info : stm32f3x.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f3x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : accepting 'gdb' connection on tcp/3333
+Info : device id = 0x10016438
+Info : flash size = 64kbytes
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 00000000 pc: 0xd0092900 msp: 0x78014804
+Info : halted: PC: 0xdc02297a
+Info : dropped 'gdb' connection
+Info : accepting 'gdb' connection on tcp/3333
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 00000000 pc: 0xd0092900 msp: 0x78014804
+Info : halted: PC: 0xdc02297a
+Info : dropped 'gdb' connection
+Info : accepting 'gdb' connection on tcp/3333
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 00000000 pc: 0xd0092900 msp: 0x78014804
+Info : halted: PC: 0xdc02297a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x2000000c
+Info : halted: PC: 0x2000000e
+Info : halted: PC: 0x20000010
+Info : halted: PC: 0x20000014
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x20000008
+Info : halted: PC: 0x2000000a
+Info : halted: PC: 0x20000016
+Info : halted: PC: 0x2000001a
+Info : halted: PC: 0x20000002
+Info : halted: PC: 0x20000004
+Info : halted: PC: 0x20000006
+Info : halted: PC: 0x2000001c
+Info : halted: PC: 0x2000001c
+Info : halted: PC: 0x2000001c
+Info : halted: PC: 0x2000001c
+Info : halted: PC: 0x2000001c
+Info : halted: PC: 0x2000001c
+
+-----------------------------------------------------------
+
+[becker] [/home/p/p_thibe] > cd COEN311/code/lab4
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > module load COEN311
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > arm-none-eabi-gdb Converter.elf
+GNU gdb (GNU Toolchain for the Arm Architecture 11.2-2022.02 (arm-11.14)) 11.2.90.20220202-git
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=x86_64-pc-linux-gnu --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://bugs.linaro.org/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from Converter.elf...
+(gdb) target extended-remote localhost:3333
+Remote debugging using localhost:3333
+convert_loop () at Converter.s:24
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) monitor reset halt
+Unable to match requested speed 1000 kHz, using 950 kHz
+Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 00000000 pc: 0xd0092900 msp: 0x78014804
+(gdb) load
+Loading section .text, size 0x24 lma 0x20000000
+Loading section .data, size 0x16 lma 0x20000024
+Start address 0x20000000, load size 58
+Transfer rate: 56 KB/sec, 29 bytes/write.
+(gdb) break start
+Breakpoint 1 at 0x20000000: file Converter.s, line 12.
+(gdb) continue
+Continuing.
+
+^C
+Program received signal SIGINT, Interrupt.
+0xdc02297a in ?? ()
+(gdb) x/22xc &message
+0x20000024:	106 'j'	117 'u'	77 'M'	112 'p'	105 'i'	110 'n'	103 'g'	32 ' '
+0x2000002c:	74 'J'	65 'A'	99 'c'	107 'k'	32 ' '	102 'f'	108 'l'	97 'a'
+0x20000034:	83 'S'	104 'h'	32 ' '	35 '#'	49 '1'	0 '\000'
+(gdb) stepi
+halted: PC: 0xdc02297a
+0xdc02297a in ?? ()
+(gdb) load
+Loading section .text, size 0x24 lma 0x20000000
+Loading section .data, size 0x16 lma 0x20000024
+Start address 0x20000000, load size 58
+Transfer rate: 56 KB/sec, 29 bytes/write.
+(gdb) break start
+Note: breakpoint 1 also set at pc 0x20000000.
+Breakpoint 2 at 0x20000000: file Converter.s, line 12.
+(gdb) continue
+Continuing.
+
+Breakpoint 1, start () at Converter.s:12
+12	    ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=message[i]
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [Remote target] will be detached.
+
+Quit anyway? (y or n) y
+Detaching from program: /nfs/home/p/p_thibe/COEN311/code/lab4/Converter.elf, Remote target
+[Inferior 1 (Remote target) detached]
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > arm-none-eabi-gdb Converter.elf
+GNU gdb (GNU Toolchain for the Arm Architecture 11.2-2022.02 (arm-11.14)) 11.2.90.20220202-git
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=x86_64-pc-linux-gnu --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://bugs.linaro.org/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from Converter.elf...
+(gdb) target extended-remote localhost:3333
+Remote debugging using localhost:3333
+start () at Converter.s:12
+12	    ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=message[i]
+(gdb) monitor reset halt
+Unable to match requested speed 1000 kHz, using 950 kHz
+Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 00000000 pc: 0xd0092900 msp: 0x78014804
+(gdb) load
+Loading section .text, size 0x24 lma 0x20000000
+Loading section .data, size 0x16 lma 0x20000024
+Start address 0x20000000, load size 58
+Transfer rate: 56 KB/sec, 29 bytes/write.
+(gdb) break start
+Breakpoint 1 at 0x20000000: file Converter.s, line 12.
+(gdb) continue
+Continuing.
+halted: PC: 0xdc02297a
+^C
+Program received signal SIGINT, Interrupt.
+0xdc02297a in ?? ()
+(gdb) load
+Loading section .text, size 0x24 lma 0x20000000
+Loading section .data, size 0x16 lma 0x20000024
+Start address 0x20000000, load size 58
+Transfer rate: 56 KB/sec, 29 bytes/write.
+(gdb) break start
+Note: breakpoint 1 also set at pc 0x20000000.
+Breakpoint 2 at 0x20000000: file Converter.s, line 12.
+(gdb) continue
+Continuing.
+
+Breakpoint 1, start () at Converter.s:12
+12	    ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=message[i]
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [Remote target] will be detached.
+
+Quit anyway? (y or n) y
+Detaching from program: /nfs/home/p/p_thibe/COEN311/code/lab4/Converter.elf, Remote target
+[Inferior 1 (Remote target) detached]
+[becker] [/home/p/p_thibe/COEN311/code/lab4] > arm-none-eabi-gdb Converter.elf
+GNU gdb (GNU Toolchain for the Arm Architecture 11.2-2022.02 (arm-11.14)) 11.2.90.20220202-git
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=x86_64-pc-linux-gnu --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://bugs.linaro.org/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from Converter.elf...
+(gdb) target extended-remote localhost:3333
+Remote debugging using localhost:3333
+start () at Converter.s:12
+12	    ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=message[i]
+(gdb) monitor reset halt
+Unable to match requested speed 1000 kHz, using 950 kHz
+Unable to match requested speed 1000 kHz, using 950 kHz
+target halted due to debug-request, current mode: Thread 
+xPSR: 00000000 pc: 0xd0092900 msp: 0x78014804
+(gdb) load
+Loading section .text, size 0x24 lma 0x20000000
+Loading section .data, size 0x16 lma 0x20000024
+Start address 0x20000000, load size 58
+Transfer rate: 56 KB/sec, 29 bytes/write.
+(gdb) break start
+Breakpoint 1 at 0x20000000: file Converter.s, line 12.
+(gdb) continue
+Continuing.
+halted: PC: 0xdc02297a
+
+^C
+Program received signal SIGINT, Interrupt.
+0xdc02297a in ?? ()
+(gdb) load
+Loading section .text, size 0x24 lma 0x20000000
+Loading section .data, size 0x16 lma 0x20000024
+Start address 0x20000000, load size 58
+Transfer rate: 56 KB/sec, 29 bytes/write.
+(gdb) break start
+Note: breakpoint 1 also set at pc 0x20000000.
+Breakpoint 2 at 0x20000000: file Converter.s, line 12.
+(gdb) continue
+Continuing.
+
+Breakpoint 1, start () at Converter.s:12
+12	    ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=message[i]
+(gdb) x/22xc &message
+0x20000024:	106 'j'	117 'u'	77 'M'	112 'p'	105 'i'	110 'n'	103 'g'	32 ' '
+0x2000002c:	74 'J'	65 'A'	99 'c'	107 'k'	32 ' '	102 'f'	108 'l'	97 'a'
+0x20000034:	83 'S'	104 'h'	32 ' '	35 '#'	49 '1'	0 '\000'
+(gdb) info register
+r0             0x0                 0
+r1             0x0                 0
+r2             0x0                 0
+r3             0x0                 0
+r4             0x0                 0
+r5             0x0                 0
+r6             0x0                 0
+r7             0x0                 0
+r8             0x0                 0
+r9             0x0                 0
+r10            0x0                 0
+r11            0x0                 0
+r12            0x0                 0
+sp             0x780147e0          0x780147e0
+lr             0xfffffff9          -7
+pc             0x20000000          0x20000000 <start>
+xPSR           0x1000003           16777219
+fpscr          0x0                 0
+msp            0x780147e0          0x780147e0
+psp            0x0                 0x0
+primask        0x0                 0
+basepri        0x0                 0
+faultmask      0x0                 0
+control        0x0                 0
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) x/22xc &message
+0x20000024:	74 'J'	85 'U'	77 'M'	112 'p'	105 'i'	110 'n'	103 'g'	32 ' '
+0x2000002c:	74 'J'	65 'A'	99 'c'	107 'k'	32 ' '	102 'f'	108 'l'	97 'a'
+0x20000034:	83 'S'	104 'h'	32 ' '	35 '#'	49 '1'	0 '\000'
+(gdb) info register
+r0             0x20000026          536870950
+r1             0x4d                77
+r2             0x0                 0
+r3             0x0                 0
+r4             0x0                 0
+r5             0x0                 0
+r6             0x0                 0
+r7             0x0                 0
+r8             0x0                 0
+r9             0x0                 0
+r10            0x0                 0
+r11            0x0                 0
+r12            0x0                 0
+sp             0x780147e0          0x780147e0
+lr             0xfffffff9          -7
+pc             0x20000016          0x20000016 <next_char>
+xPSR           0x81000003          -2130706429
+fpscr          0x0                 0
+msp            0x780147e0          0x780147e0
+psp            0x0                 0x0
+primask        0x0                 0
+basepri        0x0                 0
+faultmask      0x0                 0
+control        0x0                 0
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) 
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x2000000c
+21	    cmp r1, #'z'          @ if (x>'z')
+(gdb) stepi
+halted: PC: 0x2000000e
+22	    bgt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000010
+24	    sub r1, r1, #32       @ x=x-32
+(gdb) stepi
+halted: PC: 0x20000014
+25	    strb r1, [r0]         @ array[i]=x
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) x/22xc &message
+0x20000024:	74 'J'	85 'U'	77 'M'	80 'P'	73 'I'	78 'N'	71 'G'	32 ' '
+0x2000002c:	74 'J'	65 'A'	67 'C'	75 'K'	32 ' '	70 'F'	76 'L'	65 'A'
+0x20000034:	83 'S'	72 'H'	32 ' '	35 '#'	49 '1'	0 '\000'
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x20000008
+19	    cmp r1, #'a'          @ if(x<'a')
+(gdb) stepi
+halted: PC: 0x2000000a
+20	    blt next_char         @ goto next_char ->skip itteration
+(gdb) stepi
+halted: PC: 0x20000016
+next_char () at Converter.s:28
+28	    add r0, r0, #1        @ i++
+(gdb) stepi
+halted: PC: 0x2000001a
+29	    b convert_loop        @ repeat loop
+(gdb) stepi
+halted: PC: 0x20000002
+convert_loop () at Converter.s:15
+15	    ldrb r1, [r0]         @ x=array[i]
+(gdb) stepi
+halted: PC: 0x20000004
+16	    cmp r1, #0            @ if(x==0)
+(gdb) stepi
+halted: PC: 0x20000006
+17	    beq end_conversion    @     goto end_conversion -> end loop
+(gdb) stepi
+halted: PC: 0x2000001c
+end_conversion () at Converter.s:32
+32	    b end_conversion      @ End of the program, enter an infinite loop
+(gdb) stepi
+halted: PC: 0x2000001c
+32	    b end_conversion      @ End of the program, enter an infinite loop
+(gdb) stepi
+halted: PC: 0x2000001c
+32	    b end_conversion      @ End of the program, enter an infinite loop
+(gdb) stepi
+halted: PC: 0x2000001c
+32	    b end_conversion      @ End of the program, enter an infinite loop
+(gdb) stepi
+halted: PC: 0x2000001c
+32	    b end_conversion      @ End of the program, enter an infinite loop
+(gdb) stepi
+halted: PC: 0x2000001c
+32	    b end_conversion      @ End of the program, enter an infinite loop
+(gdb) x/22xc &message
+0x20000024:	74 'J'	85 'U'	77 'M'	80 'P'	73 'I'	78 'N'	71 'G'	32 ' '
+0x2000002c:	74 'J'	65 'A'	67 'C'	75 'K'	32 ' '	70 'F'	76 'L'	65 'A'
+0x20000034:	83 'S'	72 'H'	32 ' '	35 '#'	49 '1'	0 '\000'
+(gdb) 
+
