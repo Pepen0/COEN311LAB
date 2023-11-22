@@ -1,0 +1,92 @@
+---------------------------------------- Terminal 1 ----------------------------------------
+-------------------- Prepare the linux environment --------------------
+
+module load COEN311
+
+---------- verify linux setup ---------- 
+
+which openocd
+which arm-none-eabi-as
+which arm-none-eabi-ld
+which arm-none-eabi-gdb
+
+----- Or -----
+
+man witch
+
+
+
+-------------------- run openocd --------------------
+
+lsusb
+
+openocd -f board/st_nucleo_f3.cfg
+
+---------- END ----------
+
+CTRL-C
+
+
+----------------------------------------Terminal 2 ----------------------------------------
+
+-------------------- Assembling and loading  --------------------
+
+---------- Write your assembly code ---------- 
+
+mkdir COEN311
+cd COEN311
+mkdir CODE
+cd CODE
+mkdir lab...
+nano mycode.s
+
+---------- Assemble Code ----------
+
+arm-none-eabi-as -g mycode.s -o mycode.o -al=mycode.lst
+
+----- double check -----
+
+more mycode.lst
+
+
+---------- link/Load your file  ----------
+
+arm-none-eabi-ld mycode.o -o mycode.elf -Ttext=0x8000000
+
+----- or -----
+
+arm-none-eabi-ld add_from_mem.o -o add_from_mem.elf -T stm32f334r8_ALL_IN_RAM.ld
+
+
+
+-------------------- Single step trought and debug --------------------
+
+arm-none-eabi-gdb mycode.elf
+
+---------- Debug ----------
+
+target extended-remote localhost:3333
+monitor reset halt
+load
+break start
+continue
+
+----- Checkup main memory content -----
+x/3xb &label 
+x/3xb 0x2000010c
+
+----- Checkup main memory string content -----
+x/22xc &label
+x/1xs &label
+
+----- checkup Register-----
+info registers
+
+----- Step trought program -----
+stepi
+
+---------- END ----------
+quit
+
+
+

@@ -1,13 +1,15 @@
 .syntax unified
 .cpu cortex-m4
 .thumb
+.word 0x20000400 
+.word 0x800000ed 
+.space 0xe4 
 
 .data
 message: .ascii "juMping JAck flaSh #1"
 lastchar: .byte 0  @ NULL since last char would be a byte full of 0
 
 .text
-.global start
 start:
     ldr r0, =message  @ Load the address of the message into r0 -> for(i in message) array[i]=message[i]
 
@@ -31,4 +33,3 @@ next_char:
 end_conversion:
     b end_conversion      @ End of the program, enter an infinite loop
 
-.end
